@@ -1,0 +1,80 @@
+18/3/2563 9.00 - 18.00
+- เพิ่มไฟล์ styleshowdataschool.css
+- เพิ่มไฟล์ styleeditschool.css
+- เพิ่มไฟล์ stylemainnewscschool.css
+- เพิ่มไฟล์ styleviewnewsc.css
+- เพิ่มไฟล์ styleviewnamedonateformnew.css
+- เพิ่มไฟล์ styleformaddnewsc.css
+**
+ขอบเขตที่อาจต้องเอาออก
+1 ปฎิทิน
+2 เปิดปิดแจ้งเตือน user
+3 คลิป
+4 แผนที่
+5 แชร์
+**
+	(ติดปัญหา คลิกบันทึกข้อมูลข่าวสารแล้ว ขึ้นว่าบันทึกแล้ว แต่ลงในฐานข้อมูล)
+- แก้ไขหน้าหลัก ของ user กับ school
+- ปรับ / เพิ่มข้อมูลบ่างส่วนในหน้า User บริจาค
+19/3/2563 - 21/3/2563
+เพิ่มหลายอย่าง
+**
+//sql ลบภาพ ใน folder ที่อยูในเครื่อง
+    $sqldeletepicnew = "SELECT New_pic FROM tb_new WHERE New_id = '$Newidschooladmin'";
+    $querydeletepic = mysqli_query($conn,$sqldeletepicnew);
+    $resultdeletepic = mysqli_fetch_array($querydeletepic, MYSQLI_NUM);
+    $filepatchdeletepic = $resultdeletepic[0];
+
+    @unlink('Newscpic/'.$filepatchdeletepic);
+
+ Piccomm_name,
+        Piccomment_nameadmin,
+        Piccomm_pica
+
+ '$Comment_admin',
+        '$Namecomm_admin',
+        '$Commentpicid_admin'
+
+<div class="fb-share-button"
+        data-href="https://developers.facebook.com/docs/plugins/" 
+        data-layout="button" 
+        data-size="small">
+        <a target="_blank" 
+        href="\Project" 
+        class="fb-xfbml-parse-ignore">แชร์
+
+ <table class="bb" border="1">
+                <tr>
+                    <h>แสดงความคิดเห็น</h>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>รายละเอียด</strong>
+                    </td>
+                    <td>
+                        <textarea type="text" name="datacomment"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>ชื่อผู้ตอบ</strong>
+                    </td>
+                    <td>
+                        <input name="namecomment" type="text" value="<?php echo $resultviewadmin["Admin_name"] ;?>" size="50" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>อีเมล์ผู้ตอบ</strong>
+                    </td>
+                    <td>
+                        <input name="emailcomment" type="text" id="email" size="50" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                    <button name="addcomment">บันทึกข้อมูล</button>
+                        <input type="button" name="black" value="กลับ" onclick="history.back();" />
+                    </td>
+                </tr>
