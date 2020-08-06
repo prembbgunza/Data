@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://www.chartjs.org/samples/latest/charts/bar/vertical.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Bar Chart</title>
+	<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+	<script async="" src="./BarChart_files/analytics.js.download"></script><script src="./BarChart_files/Chart.min.js.download"></script>
+	<script src="./BarChart_files/utils.js.download"></script>
+	<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		font-size: 18px;
+	}
+	.a {
+		height: 700px; width: 1240px;
+		margin-left: 110px;
+		text-align: center;
+	}
+	.b {
+		text-align: center;
+		margin: 10px 10px;
+	}
+	button {
+		margin: 20px 10px;
+	}
+	button:hover {
+		background-color: yellow;
+	}
+	</style>
+<style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
+
+<body>
+	<div class="b">
+    <select onchange="location = this.options[this.selectedIndex].value;">
+        <option>เลือกปี</option>
+        <option value="ปี2563.html">ปี 2563</option>
+        <option value="ปี2562.html">ปี 2562</option>
+        <option value="ปี2561.html">ปี 2561</option>
+	</select>​
+	</div>
+	<div id="container" style="width: 75%;">
+		<div class="chartjs-size-monitor">
+			<div class="chartjs-size-monitor-expand">
+				<div class="">
+				</div>
+			</div>
+		<div class="chartjs-size-monitor-shrink">
+			<div class="">
+			</div>
+		</div>
+	</div>
+		<div class="a">
+		<canvas id="canvas" style="display: block;" class="chartjs-render-monitor"></canvas>
+		<a href="กรกฎาคม25632.html"><button>16 - 31</button></a>
+		</div>
+	</div>
+	<script>
+		//var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		var color = Chart.helpers.color;
+		var barChartData = {
+			labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
+			datasets: [{
+				label: 'รายจ่าย',
+				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.red,
+				borderWidth: 1,
+				data: [
+				0,
+				0,
+				544,
+				0,
+				544,
+				144,
+				0,
+				314,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+				]
+			}, {
+				label: 'รายรับ',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.blue,
+				borderWidth: 1,
+				data: [
+                0,
+				0,
+				3,000,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				]
+			}]
+
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					responsive: true,
+					legend: {
+						position: 'top',
+					},
+					title: {
+						display: true,
+						text: 'กราฟแสดง รายรับ-รายจ่าย ประจำเดือนกรกฎาคม ปี 2563 (1-15)'
+					}
+				}
+			});
+
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			var zero = Math.random() < 0.2 ? true : false;
+			barChartData.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return zero ? 0.0 : randomScalingFactor();
+				});
+
+			});
+			window.myBar.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var colorName = colorNames[barChartData.datasets.length % colorNames.length];
+			var dsColor = window.chartColors[colorName];
+			var newDataset = {
+				label: 'Dataset ' + (barChartData.datasets.length + 1),
+				backgroundColor: color(dsColor).alpha(0.5).rgbString(),
+				borderColor: dsColor,
+				borderWidth: 1,
+				data: []
+			};
+
+			for (var index = 0; index < barChartData.labels.length; ++index) {
+				newDataset.data.push(randomScalingFactor());
+			}
+
+			barChartData.datasets.push(newDataset);
+			window.myBar.update();
+		});
+
+		document.getElementById('addData').addEventListener('click', function() {
+			if (barChartData.datasets.length > 0) {
+				var month = MONTHS[barChartData.labels.length % MONTHS.length];
+				barChartData.labels.push(month);
+
+				for (var index = 0; index < barChartData.datasets.length; ++index) {
+					// window.myBar.addData(randomScalingFactor(), index);
+					barChartData.datasets[index].data.push(randomScalingFactor());
+				}
+
+				window.myBar.update();
+			}
+		});
+
+		document.getElementById('removeDataset').addEventListener('click', function() {
+			barChartData.datasets.pop();
+			window.myBar.update();
+		});
+
+		document.getElementById('removeData').addEventListener('click', function() {
+			barChartData.labels.splice(-1, 1); // remove the label first
+
+			barChartData.datasets.forEach(function(dataset) {
+				dataset.data.pop();
+			});
+
+			window.myBar.update();
+		});
+	</script>
+
+
+</body></html>
