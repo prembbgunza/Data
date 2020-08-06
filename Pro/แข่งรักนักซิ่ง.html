@@ -1,0 +1,104 @@
+<?php
+  include '#.php';
+  $sql = "SELECT # FROM #";
+  //
+  $sql2 = "SELECT #,# FROM #";
+  //
+  $sql3 = "SELECT * FROM #";
+  //
+  $sql4 = "SELECT * FROM # WHERE # = ''";
+  //
+  $sql5 = "SELECT * FROM # WHERE # = '' OR # = ''";
+  //
+  $insert = "INSERT INTO # (#,#) VALUES ('#','#'')";
+  //
+  $update = "UPDATE # SET # = '',
+  # = ''
+  WHERE
+  # = '#'";
+  $a ="dddd";
+  //
+  $delete = "DELETE FROM # WHERE # = '#'";
+  //
+  $drop = "DROP TABLE #";
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="script/script.js"></script>
+  </head>
+  <body>
+    <!-- header menu -->
+    <div class="a">
+      <div class="b">
+        <span>หน้าแรก</span>
+        <span>ละคร</span>
+      <div class="dropdown">
+        <span>สมัครสมาชิก</span>
+      <div class="itemdropdown">
+        <form
+          name=""
+          method=""
+          action=""
+          enctype="">
+          <input type="text" id="data"
+            onkeypress="return charat()"
+            onkeyup="return autoTab()"
+            required>
+          <button>สมัคร</button>
+        </form>
+      </div>
+      </div>
+      <div class="dropdown">
+        <span>เข้าสู่ระบบ</span>
+      <div class="itemdropdown">
+        <form
+          name=""
+          method=""
+          action=""
+          enctype="">
+          <input type="text" onkeypress="return charat()" required>
+          <button>LOGIN</button>
+        </form>
+      </div>
+      </div>
+    </div >
+    </div>
+    <!-- จบ header menu-->
+    <!-- panel1-->
+    <div class="panel1">
+      <img src="https://cdn.otv.co.th/images/contents/cover/20160610/575ab61944e39_smarttv.jpg">
+      <div class="ep">
+        <a href="">ตอนที่ 1</a>
+      </div>
+      <div class="ep">
+        <a href="">ตอนที่ 2</a>
+      </div>
+      <div class="ep">
+        <a href="">ตอนที่ 3</a>
+      </div>
+      <div class="ep">
+        <a href="">ตอนที่ 4</a>
+      </div>
+      <div class="ep">
+        <a href="">ตอนที่ 5</a>
+      </div>
+      <div class="ep">
+        <a href="">ตอนที่ 6</a>
+      </div>
+    </div>
+    <!-- จบ panel1 -->
+    <!-- footer -->
+    <div class="footer">
+      <a>ภาณุพงษ์ โคตรพัฒน์ สาขาเทคโนโลยีสารสนเทศ</a>
+      <br>
+      <a>คณะวิทยาการสารสนเทศ มหาวืทยาลัยมหาสารคาม</a>
+    </div>
+    <!-- จบ footer -->
+  </body>
+</html>
