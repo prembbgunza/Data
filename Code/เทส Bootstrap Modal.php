@@ -1,7 +1,7 @@
 *****
 /*ตรงส่วนที่ลงข้อมูลสำเร็จหรือไม่สำเร็จ ยังมีปัญหาคือ Modal 1 มันขึ้น แล้วคลิกยืนยัน มันมาแวบเดียวก็หายไปเลย*/
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -13,12 +13,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>เทส Bootstrap Modal</title>
 <style>
-.a {
-  z-index: 99999;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  -o-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
 </style>
 </head>
 <body>
@@ -52,10 +46,10 @@
         </div>
     </div>
     </form>
-	<?php
+<?php
     if(isset($_POST["btnsave"]))
     {
-	?>
+?>
 	<!-- Modal1 -->
     <div class="modal fade a" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2">
         <div class="modal-dialog" role="document">
